@@ -1,4 +1,6 @@
-package demo.service;
+package demo;
+
+import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,12 +19,11 @@ public class Application {
     private DemoConfig config;
     
     public static void main(String[] args) {
-
-        SpringApplication app = new SpringApplication(Application.class);
-        app.run();
+    	 SpringApplication.run(Application.class, args);
     }
 
-    public void run(String... args) throws Exception {
+    @PostConstruct
+    public void init() {
         String modelFile = config.getModelFile();
         log.info("modelFile="+modelFile); 
     }

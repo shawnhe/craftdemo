@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Configuration
 @EnableConfigurationProperties
-@ConfigurationProperties
+@ConfigurationProperties(prefix="demo")
 public class DemoConfig {
     private String modelFile;
 
