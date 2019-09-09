@@ -1,4 +1,4 @@
-package demo;
+package demo.service;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
