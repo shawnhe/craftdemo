@@ -5,29 +5,29 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Cat {
+public class Frame {
 	
     Logger log = LoggerFactory.getLogger(Frame.class);
      
     private int row;
     private int col;
-    private char[][] cat;
+    private char[][] frame;
         
-    public Cat(int row, int col, List<String> list) {
+    public Frame(int row, int col, List<String> list) {
     	this.row = row;
     	this.col = col;
-    	cat = new char[row][col];    
+    	frame = new char[row][col];    
     	
     	for (int i=0; i< row; i++) {
     		for (int j=0; j<col; j++) {
-    			cat[i][j] = ' ';
+    			frame[i][j] = ' ';
     		}
     	}
     	
     	for (int i = 0; i < row; i++) {
     		String str = list.get(i);
     		for (int j=0; j<str.length(); j++) {
-    			cat[i][j] = str.charAt(j);
+    			frame[i][j] = str.charAt(j);
     		}
     	}
     }
@@ -48,18 +48,18 @@ public class Cat {
     	this.col = col;
     }
     
-    public char[][] getCat() {
-    	return cat;
+    public char[][] getFrame() {
+    	return frame;
     }
     
-    public void setCat(char[][] cat) {
-    	this.cat = cat;
+    public void setFrame(char[][] frame) {
+    	this.frame = frame;
     }
     
-    public void printCat() {
+    public void printFrame() {
     	for (int i=0; i<row; i++) {
     		for (int j=0; j<col; j++ ) {
-    			System.out.print(cat[i][j]);
+    			System.out.print(frame[i][j]);
     		}
     		System.out.println("");
     	}
