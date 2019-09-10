@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +25,9 @@ public class ImageController {
         Cat cat = config.getCat();
         
     	log.info("cat row="+cat.getRow());
+    	
+    	cat.printCat();
+    	
         return new Image(image.getThreshold(), image.getFrame());
     }
 }

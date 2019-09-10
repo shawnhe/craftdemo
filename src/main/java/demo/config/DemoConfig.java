@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,19 +44,25 @@ public class DemoConfig {
     	int row = 0;
     	int col = 0;
     	
+    	List<String> list = new ArrayList<String>();
+    	
     	reader = new BufferedReader (new FileReader(modelFile));
     	
     	String line = reader.readLine();
     	col = line.length();
     	row ++;
+    	list.add(line);
     	
     	while(line != null) {
     		line = reader.readLine();
     		row ++;   		
+        	list.add(line);
     	}
     	
+    	row --;
+    	
     	log.info("row="+row+", col="+col);
-    	Cat cat = new Cat(row, col);
+    	Cat cat = new Cat(row, col, list);
     	return cat;
     }
 }
