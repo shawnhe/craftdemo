@@ -1,8 +1,13 @@
 package demo.service;
 
+import javax.validation.constraints.NotNull;
+
 public class Image {
 
-    private int threshold;
+	// default value
+    private int threshold = 85;
+	
+	@NotNull
     private String frame;
     
     public Image() {}

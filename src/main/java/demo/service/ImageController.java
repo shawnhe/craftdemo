@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,7 @@ public class ImageController {
     private DemoConfig config;
     
     @PostMapping(value="/findTheCats", consumes = "application/json", produces = "application/json")
-    public List<MatchResult> findTheCats(@RequestBody Image image) throws IOException {         
+    public List<MatchResult> findTheCats(@Valid @RequestBody Image image) throws IOException {         
     	
         Cat cat = config.getCat();
         
