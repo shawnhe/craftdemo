@@ -1,32 +1,23 @@
 package demo.model;
 
 public class MatchResult {
-	private int row;
-	private int col;
+
+	private Location location;
 	private int matchPct;
 	
 	public MatchResult() {}
 	
-	public MatchResult(int row, int col, int matchPct) {
-		this.row = row;
-		this.col = col;
+	public MatchResult(Location location, int matchPct) {
+		this.location = location;
 		this.matchPct = matchPct;
 	}
 	
-	public int getRow() {
-		return row;
+	public Location getLocation() {
+		return location;
 	}
 	
-	public void setRow(int row) {
-		this.row = row;
-	}
-	
-	public int getCol() {
-		return col;
-	}
-	
-	public void setCol(int col) {
-		this.col = col;
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 	
 	public int getMatchPct() {

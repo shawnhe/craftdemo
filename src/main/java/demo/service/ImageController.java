@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import demo.config.DemoConfig;
 import demo.model.Cat;
+import demo.model.DemoResponse;
+import demo.model.Location;
 import demo.model.VideoFrame;
 import demo.model.MatchResult;
 
@@ -29,7 +31,7 @@ public class ImageController {
     private DemoConfig config;
     
     @PostMapping(value="/findTheCats", consumes = "application/json", produces = "application/json")
-    public List<MatchResult> findTheCats(@Valid @RequestBody Image image) throws IOException {         
+    public DemoResponse findTheCats(@Valid @RequestBody Image image) throws IOException {         
     	
         Cat cat = config.getCat();
         
@@ -43,7 +45,9 @@ public class ImageController {
     	
     	List<MatchResult> list = matchFrame(frame, cat, image.getThreshold());
     	
-        return list;
+    	DemoResponse response = new DemoResponse(list, list.size());
+    	
+        return response;
     }
     
     private VideoFrame getFrame(Image image) throws IOException {
@@ -87,7 +91,8 @@ public class ImageController {
     			if (pct >= threshold) {
     				int x = i + cat_row/2;
     				int y = j + cat_col/2;
-    				MatchResult rslt = new MatchResult(x, y, pct);
+    				Location location = new Location(x, y);
+    				MatchResult rslt = new MatchResult(location, pct);
     				list.add(rslt);
     			}
     		}
