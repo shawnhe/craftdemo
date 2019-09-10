@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public class Cat {
 	
-    Logger log = LoggerFactory.getLogger(Frame.class);
+    Logger log = LoggerFactory.getLogger(VideoFrame.class);
      
     private int row;
     private int col;

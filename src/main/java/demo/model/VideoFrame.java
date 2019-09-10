@@ -5,15 +5,15 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Frame {
+public class VideoFrame {
 	
-    Logger log = LoggerFactory.getLogger(Frame.class);
+    Logger log = LoggerFactory.getLogger(VideoFrame.class);
      
     private int row;
     private int col;
     private char[][] frame;
         
-    public Frame(int row, int col, List<String> list) {
+    public VideoFrame(int row, int col, List<String> list) {
     	this.row = row;
     	this.col = col;
     	frame = new char[row][col];    
