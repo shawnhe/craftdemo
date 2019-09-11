@@ -1,7 +1,10 @@
 # craftdemo
 
 # REST API 
-http://3.218.29.81:8080/findTheCats
+# brutal force approach
+http://3.218.29.81:8080/findTheCats/native
+# use kmp string match approach
+http://3.218.29.81:8080/findTheCats/kmp
 
 # To test using curl command:
 
