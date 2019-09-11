@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 // store cat file as a 2-D array data
 public class Cat {
 	
-    Logger log = LoggerFactory.getLogger(VideoFrame.class);
+    Logger log = LoggerFactory.getLogger(Cat.class);
      
     private int row;
     private int col;

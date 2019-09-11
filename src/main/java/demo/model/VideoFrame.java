@@ -13,7 +13,7 @@ public class VideoFrame {
     private int row;
     private int col;
     private char[][] frame;
-        
+    
     public VideoFrame(int row, int col, List<String> list) {
     	this.row = row;
     	this.col = col;

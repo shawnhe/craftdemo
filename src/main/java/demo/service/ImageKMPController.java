@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import demo.algorithm.KMPMatch;
 import demo.config.DemoConfig;
 import demo.model.Cat;
 import demo.model.DemoResponse;
@@ -22,14 +23,14 @@ import demo.model.VideoFrame;
 import demo.model.MatchResult;
 
 @RestController
-public class ImageController {
-    Logger log = LoggerFactory.getLogger(ImageController.class);
+public class ImageKMPController {
+    Logger log = LoggerFactory.getLogger(ImageKMPController.class);
     
     @Autowired
     private DemoConfig config;
     
     //REST API to search for cat from an image file
-    @PostMapping(value="/findTheCats", consumes = "application/json", produces = "application/json")
+    @PostMapping(value="/findTheCats/kmp", consumes = "application/json", produces = "application/json")
     public DemoResponse findTheCats(@Valid @RequestBody Image image) throws IOException {         
     	
     	// read out the server's cat file
@@ -45,7 +46,7 @@ public class ImageController {
     	frame.printFrame();
     	
     	// match frame with the cat
-    	List<MatchResult> list = matchFrame(frame, cat, image.getThreshold());
+    	List<MatchResult> list = KMPMatch.matchFrame(frame, cat, image.getThreshold());
     	
     	// construct response with search results
     	DemoResponse response = new DemoResponse(list, list.size());
