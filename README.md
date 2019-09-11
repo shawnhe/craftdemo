@@ -15,3 +15,6 @@ or
 # Use default threshold at the server (85%)
 sh test-local2.sh,
 sh test-aws2.sh
+
+# The AWS instance currently running the code is at:
+3.218.29.81
