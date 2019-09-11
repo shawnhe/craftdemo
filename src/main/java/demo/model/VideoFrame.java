@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// store frame data into a 2-D array for searching purpose
 public class VideoFrame {
 	
     Logger log = LoggerFactory.getLogger(VideoFrame.class);

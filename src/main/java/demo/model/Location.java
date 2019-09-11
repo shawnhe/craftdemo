@@ -1,5 +1,6 @@
 package demo.model;
 
+// location of the center point of a cat on the frame, in terms of row and column
 public class Location {
 	private int row;
 	private int col;

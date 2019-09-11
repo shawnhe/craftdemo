@@ -2,6 +2,7 @@ package demo.model;
 
 import java.util.List;
 
+// return response with a cat count, and a list of their locations and match percentages
 public class DemoResponse {
 
 	private List<MatchResult> catList;

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Configuration
 public class JacksonConfiguration {
 
+	// create a custom object mapper to handle special characters inside request body
     @Bean
     public ObjectMapper objectMapper() {
         ObjectMapper mapper = new ObjectMapper();

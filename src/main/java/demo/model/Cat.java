@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// store cat file as a 2-D array data
 public class Cat {
 	
     Logger log = LoggerFactory.getLogger(VideoFrame.class);

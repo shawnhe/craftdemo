@@ -33,6 +33,7 @@ public class DemoConfig {
         this.modelFile = modelFile;
     }
     
+    // singleton cat data from a disk file
     @Bean
     public Cat getCat() throws IOException {
     	int row = 0;
