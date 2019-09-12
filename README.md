@@ -9,6 +9,7 @@ http://3.218.29.81:8080/findTheCats/kmp
 # To test using curl command:
 
 curl -H "Content-Type: application/json" --data-binary @./image_with_cats.json http://localhost:8080/findTheCats/native
+
 curl -H "Content-Type: application/json" --data-binary @./image_with_cats.json http://localhost:8080/findTheCats/kmp
 
 # To test using the test script inside bin:
