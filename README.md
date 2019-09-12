@@ -26,7 +26,7 @@ Usage: ./testclient.sh [options]
 
 Options:
 
- -f | --frame: <fileName> (eg. ../config/image_with_cats.txt)
+ -f | --frame: <fileName> (eg. ../data/image_with_cats.txt)
 
  -a | --api <apiName> (eg. native or kmp)
  
