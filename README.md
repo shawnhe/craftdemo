@@ -1,5 +1,14 @@
 # craftdemo
 
+# To build the application
+on the command line, run: mvn install
+
+# To run the application locally
+java -jar target/demo-rest-service-0.1.0.jar
+
+# The AWS instance currently running the code is at:
+3.218.29.81
+
 # REST API 
 # brutal force
 http://3.218.29.81:8080/findTheCats/native
@@ -27,5 +36,4 @@ Options:
  
  -h | --help (display usage)
 
-# The AWS instance currently running the code is at:
-3.218.29.81
+
