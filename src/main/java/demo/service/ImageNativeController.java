@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import demo.algorithm.NativeMatch;
 import demo.config.DemoConfig;
 import demo.model.DemoResponse;
+import demo.model.Image;
 import demo.utils.Model;
 import demo.model.MatchResult;
 import demo.model.ProcessedData;

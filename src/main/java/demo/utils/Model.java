@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import demo.model.ProcessedData;
-import demo.service.Image;
+import demo.model.Image;
 
 public class Model {
 

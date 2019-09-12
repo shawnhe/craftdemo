@@ -1,4 +1,4 @@
-package demo.service;
+package demo.model;
 
 import javax.validation.constraints.NotNull;
 
