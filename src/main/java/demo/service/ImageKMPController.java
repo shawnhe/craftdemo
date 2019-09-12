@@ -18,8 +18,8 @@ import demo.algorithm.KMPMatch;
 import demo.config.DemoConfig;
 import demo.model.Cat;
 import demo.model.DemoResponse;
-import demo.model.Location;
 import demo.model.VideoFrame;
+import demo.utils.Model;
 import demo.model.MatchResult;
 
 @RestController
@@ -37,7 +37,7 @@ public class ImageKMPController {
         Cat cat = config.getCat();
 
     	// read out the request's frame file
-    	VideoFrame frame = getFrame(image);
+    	VideoFrame frame = Model.getFrame(image);
 
     	// match frame with the cat
     	List<MatchResult> list = KMPMatch.matchFrame(frame, cat, image.getThreshold());
@@ -46,18 +46,5 @@ public class ImageKMPController {
     	DemoResponse response = new DemoResponse(list, list.size());
 
         return response;
-    }
-
-    private VideoFrame getFrame(Image image) throws IOException {
-
-    	String [] strs = image.getFrame().split("\n");
-    	List<String> list = Arrays.asList(strs);
-
-    	int row = list.size();
-    	// not counting newline char
-    	int col = list.get(0).length() -1 ;
-
-    	VideoFrame frame = new VideoFrame(row, col, list);
-    	return frame;
     }
 }

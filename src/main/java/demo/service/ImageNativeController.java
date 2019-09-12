@@ -1,8 +1,6 @@
 package demo.service;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -18,8 +16,8 @@ import demo.algorithm.NativeMatch;
 import demo.config.DemoConfig;
 import demo.model.Cat;
 import demo.model.DemoResponse;
-import demo.model.Location;
 import demo.model.VideoFrame;
+import demo.utils.Model;
 import demo.model.MatchResult;
 
 @RestController
@@ -35,11 +33,9 @@ public class ImageNativeController {
     	
     	// read out the server's cat file
         Cat cat = config.getCat();
-        
-    	log.info("cat row="+cat.getRow());
-    	    	
+            	    	
     	// read out the request's frame file
-    	VideoFrame frame = getFrame(image);
+    	VideoFrame frame = Model.getFrame(image);
     	    	
     	// match frame with the cat
     	List<MatchResult> list = NativeMatch.matchFrame(frame, cat, image.getThreshold());
@@ -48,18 +44,5 @@ public class ImageNativeController {
     	DemoResponse response = new DemoResponse(list, list.size());
     	
         return response;
-    }
-    
-    private VideoFrame getFrame(Image image) throws IOException {
-    	
-    	String [] strs = image.getFrame().split("\n");
-    	List<String> list = Arrays.asList(strs);
-    	
-    	int row = list.size();
-    	int col = list.get(0).length();
-    	
-    	log.info("frame: row="+row+", col="+col);
-    	VideoFrame frame = new VideoFrame(row, col, list);
-    	return frame;
     }
 }
