@@ -7,14 +7,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import demo.model.Cat;
 import demo.model.Location;
 import demo.model.MatchResult;
-import demo.model.VideoFrame;
+import demo.model.ProcessedData;
 
 public class KMPMatch {
 
-    static public List<MatchResult> matchFrame(VideoFrame frame, Cat cat, int threshold) {
+    static public List<MatchResult> matchFrame(ProcessedData frame, ProcessedData cat, int threshold) {
     	Set<Location> locations = new HashSet<>();
     	List<MatchResult> list = new ArrayList<MatchResult>();
 
@@ -26,8 +25,8 @@ public class KMPMatch {
     	int cat_row = cat.getRow();
     	int cat_col = cat.getCol();
 
-    	char[][] frames = frame.getFrame();
-    	char[][] cats = cat.getCat();
+    	char[][] frames = frame.getData();
+    	char[][] cats = cat.getData();
     	int total = cat_row * cat_col;
 
     	List<String> patternList = new ArrayList<String>();

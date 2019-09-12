@@ -14,11 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import demo.algorithm.NativeMatch;
 import demo.config.DemoConfig;
-import demo.model.Cat;
 import demo.model.DemoResponse;
-import demo.model.VideoFrame;
 import demo.utils.Model;
 import demo.model.MatchResult;
+import demo.model.ProcessedData;
 
 @RestController
 public class ImageNativeController {
@@ -32,10 +31,10 @@ public class ImageNativeController {
     public DemoResponse findTheCats(@Valid @RequestBody Image image) throws IOException {         
     	
     	// read out the server's cat file
-        Cat cat = config.getCat();
+    	ProcessedData cat = config.getCat();
             	    	
     	// read out the request's frame file
-    	VideoFrame frame = Model.getFrame(image);
+        ProcessedData frame = Model.getFrame(image);
     	    	
     	// match frame with the cat
     	List<MatchResult> list = NativeMatch.matchFrame(frame, cat, image.getThreshold());

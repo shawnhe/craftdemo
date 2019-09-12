@@ -12,7 +12,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-import demo.model.Cat;
+import demo.model.ProcessedData;
 
 @Component
 @Configuration
@@ -35,7 +35,7 @@ public class DemoConfig {
     
     // singleton cat data from a disk file
     @Bean
-    public Cat getCat() throws IOException {
+    public ProcessedData getCat() throws IOException {
     	int row = 0;
     	int col = 0;
     	
@@ -56,7 +56,7 @@ public class DemoConfig {
     	
     	row --;
     	
-    	Cat cat = new Cat(row, col, list);
+    	ProcessedData cat = new ProcessedData(row, col, list);
     	return cat;
     }
 }

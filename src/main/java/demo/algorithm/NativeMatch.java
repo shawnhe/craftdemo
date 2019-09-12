@@ -3,14 +3,13 @@ package demo.algorithm;
 import java.util.ArrayList;
 import java.util.List;
 
-import demo.model.Cat;
 import demo.model.Location;
 import demo.model.MatchResult;
-import demo.model.VideoFrame;
+import demo.model.ProcessedData;
 
 public class NativeMatch {
 
-    static public List<MatchResult> matchFrame(VideoFrame frame, Cat cat, int threshold) {
+    static public List<MatchResult> matchFrame(ProcessedData frame, ProcessedData cat, int threshold) {
     	List<MatchResult> list = new ArrayList<MatchResult>();
 
     	// frame sizes
@@ -21,8 +20,8 @@ public class NativeMatch {
     	int cat_row = cat.getRow();
     	int cat_col = cat.getCol();
     	
-    	char[][] frames = frame.getFrame();
-    	char[][] cats = cat.getCat();
+    	char[][] frames = frame.getData();
+    	char[][] cats = cat.getData();
     	int total = cat_row * cat_col;
     	
     	// scan through row by row and column by column
