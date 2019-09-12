@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 // store frame data into a 2-D array for searching purpose
 public class VideoFrame {
 
-    Logger log = LoggerFactory.getLogger(VideoFrame.class);
-
     private int row;
     private int col;
     private char[][] frame;

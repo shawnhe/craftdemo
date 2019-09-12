@@ -37,14 +37,10 @@ public class ImageNativeController {
         Cat cat = config.getCat();
         
     	log.info("cat row="+cat.getRow());
-    	
-    	//cat.printCat();
-    	
+    	    	
     	// read out the request's frame file
     	VideoFrame frame = getFrame(image);
-    	
-    	//frame.printFrame();
-    	
+    	    	
     	// match frame with the cat
     	List<MatchResult> list = NativeMatch.matchFrame(frame, cat, image.getThreshold());
     	

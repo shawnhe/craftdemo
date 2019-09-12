@@ -56,7 +56,6 @@ public class DemoConfig {
     	
     	row --;
     	
-    	log.info("row="+row+", col="+col);
     	Cat cat = new Cat(row, col, list);
     	return cat;
     }

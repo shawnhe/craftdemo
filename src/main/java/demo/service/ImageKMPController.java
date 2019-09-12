@@ -36,14 +36,8 @@ public class ImageKMPController {
     	// read out the server's cat file
         Cat cat = config.getCat();
 
-    	log.info("cat row="+cat.getRow());
-
-    //	cat.printCat();
-
     	// read out the request's frame file
     	VideoFrame frame = getFrame(image);
-
-    //	frame.printFrame();
 
     	// match frame with the cat
     	List<MatchResult> list = KMPMatch.matchFrame(frame, cat, image.getThreshold());
@@ -63,52 +57,7 @@ public class ImageKMPController {
     	// not counting newline char
     	int col = list.get(0).length() -1 ;
 
-    	log.info("frame: row="+row+", col="+col);
     	VideoFrame frame = new VideoFrame(row, col, list);
     	return frame;
-    }
-
-    private List<MatchResult> matchFrame(VideoFrame frame, Cat cat, int threshold) {
-    	List<MatchResult> list = new ArrayList<MatchResult>();
-
-    	// frame sizes
-    	int frame_row = frame.getRow();
-    	int frame_col = frame.getCol();
-
-    	// cat sizes
-    	int cat_row = cat.getRow();
-    	int cat_col = cat.getCol();
-
-    	char[][] frames = frame.getFrame();
-    	char[][] cats = cat.getCat();
-    	int total = cat_row * cat_col;
-
-    	// scan through row by row and column by column
-    	// compare against the cat data
-    	for (int i = 0; i < frame_row - cat_row + 1; i++) {
-    		for (int j = 0; j< frame_col - cat_col + 1; j++) {
-    			int pts = 0;
-    			// for each cat size area, match data with cat
-    			// each pixel (or point) counts 1pt if matched
-    			for (int row = i; row < i + cat_row -1; row++) {
-    				for (int col = j; col < j+ cat_col -1; col++) {
-    					if (frames[row][col]== cats[row-i][col-j]) {
-    						pts ++;
-    					}
-    				}
-    			}
-
-    			// if match percentage exceeds threshold, found a cat in the frame
-    			int pct = pts*100/total;
-    			if (pct >= threshold) {
-    				int x = i + cat_row/2;
-    				int y = j + cat_col/2;
-    				Location location = new Location(x, y);
-    				MatchResult rslt = new MatchResult(location, pct);
-    				list.add(rslt);
-    			}
-    		}
-    	}
-    	return list;
     }
 }
