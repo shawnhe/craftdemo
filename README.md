@@ -25,6 +25,7 @@ curl -H "Content-Type: application/json" --data-binary @./image_with_cats.json h
 Usage: ./testclient.sh [options]
 
 Options:
+
  -f | --frame: <fileName> (eg. ../config/image_with_cats.txt)
 
  -a | --api <apiName> (eg. native or kmp)
