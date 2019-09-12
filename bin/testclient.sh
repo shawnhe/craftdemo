@@ -6,7 +6,7 @@ function usage
 {
     echo "Usage: $0 [options]"
     echo "Options:"
-    echo " -f | --frame: <fileName> (eg. ../config/frame.blob )"
+    echo " -f | --frame: <fileName> (eg. ../config/image_with_cats.txt)"
     echo " -a | --api <apiName> (eg. native or kmp)"
     echo " -t | --threshold <matchPercentage> (eg. 80)"
     echo " -s | --server <serverAddress> (eg. localhost or 3.218.29.81)"
