@@ -43,9 +43,7 @@ public class NativeMatch {
     			// if match percentage exceeds threshold, found a cat in the frame
     			int pct = pts*100/total;
     			if (pct >= threshold) {
-    				int x = i + cat_row/2;
-    				int y = j + cat_col/2;
-    				Location location = new Location(x, y);
+    				Location location = new Location(i, j);
     				MatchResult rslt = new MatchResult(location, pct);
     				list.add(rslt);
     			}

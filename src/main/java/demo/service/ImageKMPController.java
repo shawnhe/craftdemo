@@ -38,12 +38,12 @@ public class ImageKMPController {
 
     	log.info("cat row="+cat.getRow());
 
-    	cat.printCat();
+    //	cat.printCat();
 
     	// read out the request's frame file
     	VideoFrame frame = getFrame(image);
 
-    	frame.printFrame();
+    //	frame.printFrame();
 
     	// match frame with the cat
     	List<MatchResult> list = KMPMatch.matchFrame(frame, cat, image.getThreshold());
