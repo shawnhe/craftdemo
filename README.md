@@ -1,4 +1,4 @@
-# craftdemo
+# project: craftdemo
 
 # To build the application
 on the command line, run: mvn install
