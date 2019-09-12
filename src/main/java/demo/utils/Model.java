@@ -7,11 +7,11 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import demo.model.ProcessedData;
-import demo.model.Image;
+import demo.model.DemoRequest;
 
 public class Model {
 
-    static public ProcessedData getFrame(Image image) throws IOException {
+    static public ProcessedData getFrame(DemoRequest image) throws IOException {
 
     	String [] strs = image.getFrame().split("\n");
 

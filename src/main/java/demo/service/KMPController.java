@@ -17,21 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
 import demo.algorithm.KMPMatch;
 import demo.config.DemoConfig;
 import demo.model.DemoResponse;
-import demo.model.Image;
+import demo.model.DemoRequest;
 import demo.utils.Model;
 import demo.model.MatchResult;
 import demo.model.ProcessedData;
 
 @RestController
-public class ImageKMPController {
-    Logger log = LoggerFactory.getLogger(ImageKMPController.class);
+public class KMPController {
+    Logger log = LoggerFactory.getLogger(KMPController.class);
 
     @Autowired
     private DemoConfig config;
 
     //REST API to search for cat from an image file
     @PostMapping(value="/findTheCats/kmp", consumes = "application/json", produces = "application/json")
-    public DemoResponse findTheCats(@Valid @RequestBody Image image) throws IOException {
+    public DemoResponse findTheCats(@Valid @RequestBody DemoRequest image) throws IOException {
 
     	// read out the server's cat file
     	ProcessedData cat = config.getCat();

@@ -15,21 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 import demo.algorithm.NativeMatch;
 import demo.config.DemoConfig;
 import demo.model.DemoResponse;
-import demo.model.Image;
+import demo.model.DemoRequest;
 import demo.utils.Model;
 import demo.model.MatchResult;
 import demo.model.ProcessedData;
 
 @RestController
-public class ImageNativeController {
-    Logger log = LoggerFactory.getLogger(ImageNativeController.class);
+public class NativeController {
+    Logger log = LoggerFactory.getLogger(NativeController.class);
     
     @Autowired
     private DemoConfig config;
     
     //REST API to search for cat from an image file
     @PostMapping(value="/findTheCats/native", consumes = "application/json", produces = "application/json")
-    public DemoResponse findTheCats(@Valid @RequestBody Image image) throws IOException {         
+    public DemoResponse findTheCats(@Valid @RequestBody DemoRequest image) throws IOException {         
     	
     	// read out the server's cat file
     	ProcessedData cat = config.getCat();

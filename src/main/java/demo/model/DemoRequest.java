@@ -2,7 +2,7 @@ package demo.model;
 
 import javax.validation.constraints.NotNull;
 
-public class Image {
+public class DemoRequest {
 
 	// default value
     private int threshold = 85;
@@ -10,9 +10,9 @@ public class Image {
 	@NotNull
     private String frame;
     
-    public Image() {}
+    public DemoRequest() {}
     
-    public Image(int threshold, String frame) {
+    public DemoRequest(int threshold, String frame) {
         this.threshold = threshold;
         this.frame = frame;
     }
