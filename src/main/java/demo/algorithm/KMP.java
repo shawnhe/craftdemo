@@ -1,5 +1,12 @@
 package demo.algorithm;
 
+/*
+ *  Disclaimer: 
+ *  
+ *  This class file is obtained through the following URL:
+ *  https://algs4.cs.princeton.edu/53substring/KMP.java
+ *  used for KMP algorithm in string search.
+ */
 /******************************************************************************
  *  Compilation:  javac KMP.java
  *  Execution:    java KMP pattern text
