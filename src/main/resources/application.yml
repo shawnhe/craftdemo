@@ -1,5 +1,5 @@
 demo:
-    modelFile: config/perfect_cat_image.txt
+    modelFile: data/perfect_cat_image.txt
 
 logging:
   level:
