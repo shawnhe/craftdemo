@@ -44,6 +44,11 @@ while [ "$1" != "" ]; do
     shift
 done
 
+
+# create a temporary file, and arrange for it to be deleted on exit
+tempfile=$(mktemp "${TMPDIR:-/tmp}/curldata.XXXXXX")
+trap 'rm -rf "$tempfile"' 0 ERR
+
 frame=$(cat ${file})
 
 if [ -z "${server}" ]; then
@@ -63,8 +68,10 @@ fi
 
 
 if [ $hasThreshold -gt 0 ]; then
-	curl -s -X POST -H "Content-Type: application/json" --data-binary '{"frame":"'"${frame}"'", "threshold":"'"${threshold}"'"}' http://${server}:8080/findTheCats/${api}
+	printf '%s' '{"frame":"'"${frame}"'", "threshold":"'"${threshold}"'"}' >"$tempfile"
 else
-	curl -s -X POST -H "Content-Type: application/json" --data-binary '{"frame":"'"${frame}"'"}' http://${server}:8080/findTheCats/${api}
+        printf '%s' '{"frame":"'"${frame}"'"}' >"$tempfile"
 fi
+
+curl -s -X POST -H "Content-Type: application/json" --data-binary  "@$tempfile" http://${server}:8080/findTheCats/${api}
 
